@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Polat | Linkler & Canlı Piyasa</title>
+    <style>
+        :root {
+            --bg-color: #0b0e11;
+            --container-bg: #181a20;
+            --card-bg: #22262f;
+            --primary-color: #f3ba2f;
+            --text-color: #eaecef;
+            --text-muted: #848e9c;
+            --telegram-color: #229ED9;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            padding-bottom: 90px;
+        }
+
+        /* Üst Profil Alanı */
+        .profile-header {
+            text-align: center;
+            padding: 35px 20px 20px 20px;
+            background: linear-gradient(180deg, #1f232d 0%, var(--bg-color) 100%);
+            border-bottom: 1px solid #2b3139;
+        }
+
+        .profile-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            object-fit: cover;
+            margin-bottom: 15px;
+            background-color: #2b3139;
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--text-color);
+            margin: 0 0 10px 0;
+        }
+
+        .profile-bio {
+            font-size: 14px;
+            color: var(--text-muted);
+            max-width: 500px;
+            margin: 0 auto 20px auto;
+            line-height: 1.5;
+        }
+
+        /* Ana İçerik Konteyneri */
+        .main-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Link Butonları */
+        .links-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .bio-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--container-bg);
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 16px 20px;
+            border-radius: 14px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid #2b3139;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .bio-btn:hover {
+            background-color: var(--card-bg);
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .bio-btn.highlight {
+            border-color: var(--primary-color);
+            background: linear-gradient(135deg, #181a20 0%, #262115 100%);
+        }
+        
+        .bio-btn.highlight span.btn-title {
+            color: var(--primary-color);
+        }
+
+        .btn-content {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            gap: 3px;
+        }
+
+        .btn-title {
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .btn-subtitle {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: normal;
+        }
+
+        .btn-arrow {
+            color: var(--text-muted);
+            font-size: 18px;
+        }
+
+        /* Widget Başlıkları & Alanları */
+        .widget-title {
+            font-size: 16px;
+            margin: 25px 0 10px 0;
+            color: var(--text-color);
+            border-left: 3px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        .widget-box {
+            background-color: var(--container-bg);
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid #2b3139;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Alt Navigasyon Çubuğu */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--container-bg);
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 10px;
+            border-top: 1px solid #2b3139;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .nav-tab-btn {
+            background-color: var(--card-bg);
+            color: var(--text-muted);
+            border: none;
+            padding: 10px 0;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            flex: 1;
+            margin: 0 6px;
+            text-align: center;
+        }
+
+        .nav-tab-btn.active {
+            background-color: var(--primary-color);
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Üst Profil ve Biyografi Kısmı -->
+    <header class="profile-header">
+        <img src="https://lh3.googleusercontent.com/d/1aLfd_do2jS0KZR0aCGZj4E7SuIsDXLA5=s1000" alt="Crypto Polat" class="profile-avatar">
+        <h1 class="profile-name">crypto polat</h1>
+        <p class="profile-bio">
+            Kitaptaki stratejileri hayata geçirmek ve ücretsiz e-kitabımı hemen almak için aşağıdaki Telegram BOTUNA tıkla.
+        </p>
+    </header>
+
+    <!-- Sekmeli Ana İçerik -->
+    <main class="main-container">
+
+        <!-- LİNKLER SEKMESİ (Sadece istediğin 4 bağlantı) -->
+        <section id="linklerTab" class="tab-content active">
+            <div class="links-stack">
+                
+                <!-- 1. Bot Linki -->
+                <a href="https://t.me/Cryptopolatbot" class="bio-btn highlight" target="_blank">
+                    <div class="btn-content">
+                        <span class="btn-title">Ücretsiz E-Kitap & Strateji Rehberi (Bot)</span>
+                        <span class="btn-subtitle">Telegram BOTUM</span>
+                    </div>
+                    <span class="btn-arrow">›</span>
+                </a>
+
+                <!-- 2. Birebir Trade Eğitimi -->
+                <a href="https://t.me/Cryptogretmen" class="bio-btn" target="_blank">
+                    <div class="btn-content">
+                        <span class="btn-title">Birebir Ücretsiz Trade Eğitimi (Bana Yaz)</span>
+                        <span class="btn-subtitle">Doğrudan iletişim için tıkla</span>
+                    </div>
+                    <span class="btn-arrow">›</span>
+                </a>
+
+                <!-- 3. Telegram Kanalı -->
+                <a href="https://t.me/crypto_polat" class="bio-btn" target="_blank">
+                    <div class="btn-content">
+                        <span class="btn-title">TELEGRAM kanalım</span>
+                        <span class="btn-subtitle">Güncel analizler ve duyurular</span>
+                    </div>
+                    <span class="btn-arrow">›</span>
+                </a>
+
+                <!-- 4. BingX -->
+                <a href="https://bingxdao.com/invite/HF6IC4" class="bio-btn highlight" target="_blank">
+                    <div class="btn-content">
+                        <span class="btn-title">BingX Kayıt linki(en güvenilir)</span>
+                        <span class="btn-subtitle">Özel avantajlı komisyon indirimli kayıt</span>
+                    </div>
+                    <span class="btn-arrow">›</span>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- CANLI PİYASA SEKMESİ -->
+        <section id="piyasaTab" class="tab-content">
+            <h2 class="widget-title">Canlı Piyasa Fiyatları</h2>
+            <div class="widget-box">
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+                    {
+                    "width": "100%",
+                    "height": 420,
+                    "symbolsGroups": [
+                        {
+                        "name": "Popüler Kriptolar",
+                        "originalName": "Cryptocurrencies",
+                        "symbols": [
+                            { "name": "CRYPTOCAP:TOTAL", "displayName": "Toplam Piyasa Değeri" },
+                            { "name": "BINANCE:BTCUSDT", "displayName": "Bitcoin" },
+                            { "name": "BINANCE:ETHUSDT", "displayName": "Ethereum" },
+                            { "name": "BINANCE:BNBUSDT", "displayName": "BNB" },
+                            { "name": "BINANCE:SOLUSDT", "displayName": "Solana" },
+                            { "name": "BINANCE:XRPUSDT", "displayName": "XRP" },
+                            { "name": "BINANCE:DOGEUSDT", "displayName": "Dogecoin" }
+                        ]
+                        }
+                    ],
+                    "showSymbolLogo": true,
+                    "isTransparent": true,
+                    "colorTheme": "dark",
+                    "locale": "tr"
+                    }
+                    </script>
+                </div>
+            </div>
+
+            <!-- İŞTE EKLENEN CRYPTO BUBBLES SİSTEMİ -->
+            <h2 class="widget-title">Crypto Bubbles (Canlı)</h2>
+            <div class="widget-box" style="padding: 0; height: 500px;">
+                <iframe src="https://cryptobubbles.net/" width="100%" height="100%" frameborder="0" style="border-radius: 14px; border: none;"></iframe>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Sabit Alt Menü -->
+    <nav class="bottom-nav">
+        <button class="nav-tab-btn active" onclick="switchTab('linklerTab', this)">🔗 Linklerim</button>
+        <button class="nav-tab-btn" onclick="switchTab('piyasaTab', this)">📊 Canlı Piyasa</button>
+    </nav>
+
+    <!-- JavaScript Sekme Kontrolü -->
+    <script>
+        function switchTab(tabId, btnElement) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+
+            document.querySelectorAll('.nav-tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            btnElement.classList.add('active');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
