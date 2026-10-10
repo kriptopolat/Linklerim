@@ -79,12 +79,26 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* TikTok / Telegram Yönlendirme Kutusu */
+        .tiktok-alert {
+            background-color: #262115;
+            border: 1px solid var(--primary-color);
+            color: var(--text-color);
+            padding: 12px 16px;
+            border-radius: 14px;
+            font-size: 13px;
+            line-height: 1.5;
+            text-align: center;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
         /* Link Butonları */
         .links-stack {
             display: flex;
             flex-direction: column;
             gap: 14px;
-            margin-top: 20px;
+            margin-top: 15px;
             margin-bottom: 20px;
         }
 
@@ -212,6 +226,13 @@
 
         <!-- LİNKLER SEKMESİ (Sadece istediğin 4 bağlantı) -->
         <section id="linklerTab" class="tab-content active">
+            
+            <!-- TikTok / Telegram Uyarı Kutusu -->
+            <div class="tiktok-alert">
+                ⚠️ <b>Telegram açılmıyor mu?</b><br>
+                TikTok içindeyseniz, sağ üstteki <b>üç noktaya (⋮)</b> basıp <b>"Tarayıcıda Aç"</b> seçeneğine tıklayarak Telegram'a sorunsuz katılabilirsiniz.
+            </div>
+
             <div class="links-stack">
                 
                 <!-- 1. Bot Linki -->
@@ -296,6 +317,30 @@
 
     </main>
 
+    <!-- Sabit Alt Menü -->
+    <nav class="bottom-nav">
+        <button class="nav-tab-btn active" onclick="switchTab('linklerTab', this)">🔗 Linklerim</button>
+        <button class="nav-tab-btn" onclick="switchTab('piyasaTab', this)">📊 Canlı Piyasa</button>
+    </nav>
+
+    <!-- JavaScript Sekme Kontrolü -->
+    <script>
+        function switchTab(tabId, btnElement) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+
+            document.querySelectorAll('.nav-tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            btnElement.classList.add('active');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
     <!-- Sabit Alt Menü -->
     <nav class="bottom-nav">
         <button class="nav-tab-btn active" onclick="switchTab('linklerTab', this)">🔗 Linklerim</button>
