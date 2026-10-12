@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crypto Polat | Linkler & Canlı Piyasa</title>
+    <title>Crypto Polat | Linkler, Piyasa & Birikim</title>
     <style>
         :root {
             --bg-color: #0b0e11;
@@ -12,7 +12,7 @@
             --primary-color: #f3ba2f;
             --text-color: #eaecef;
             --text-muted: #848e9c;
-            --telegram-color: #229ED9;
+            --danger-color: #f6465d;
         }
 
         body {
@@ -79,7 +79,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* TikTok / Telegram Yönlendirme Kutusu */
+        /* Link Butonları */
         .tiktok-alert {
             background-color: #262115;
             border: 1px solid var(--primary-color);
@@ -93,7 +93,6 @@
             margin-bottom: 5px;
         }
 
-        /* Link Butonları */
         .links-stack {
             display: flex;
             flex-direction: column;
@@ -116,12 +115,6 @@
             transition: all 0.3s ease;
             border: 1px solid #2b3139;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .bio-btn:hover {
-            background-color: var(--card-bg);
-            border-color: var(--primary-color);
-            transform: translateY(-2px);
         }
 
         .bio-btn.highlight {
@@ -174,6 +167,134 @@
             margin-bottom: 20px;
         }
 
+        /* BİRİKİM UYGULAMASI STİLLERİ */
+        .savings-dashboard {
+            background: linear-gradient(135deg, #262115 0%, #181a20 100%);
+            border: 1px solid var(--primary-color);
+            border-radius: 16px;
+            padding: 25px 20px;
+            text-align: center;
+            margin-top: 20px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        .savings-dashboard p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .savings-dashboard h2 {
+            margin: 10px 0;
+            font-size: 36px;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+
+        .savings-motto {
+            font-size: 12px !important;
+            font-style: italic;
+            opacity: 0.8;
+            margin-top: 10px !important;
+        }
+
+        .savings-form {
+            background-color: var(--container-bg);
+            border: 1px solid #2b3139;
+            border-radius: 14px;
+            padding: 15px;
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .savings-form input {
+            background-color: #0b0e11;
+            border: 1px solid #2b3139;
+            color: var(--text-color);
+            padding: 12px 15px;
+            border-radius: 10px;
+            font-size: 14px;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        .savings-form input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .savings-form button {
+            background-color: var(--primary-color);
+            color: #000;
+            border: none;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .savings-form button:active {
+            transform: scale(0.98);
+        }
+
+        .history-container {
+            margin-top: 20px;
+        }
+
+        .history-item {
+            background-color: var(--container-bg);
+            border: 1px solid #2b3139;
+            border-radius: 12px;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .history-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .history-note {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .history-date {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .history-amount {
+            font-size: 16px;
+            font-weight: bold;
+            color: #0ecb81;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .delete-btn {
+            background: rgba(246, 70, 93, 0.1);
+            color: var(--danger-color);
+            border: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         /* Alt Navigasyon Çubuğu */
         .bottom-nav {
             position: fixed;
@@ -190,23 +311,31 @@
         }
 
         .nav-tab-btn {
-            background-color: var(--card-bg);
+            background-color: transparent;
             color: var(--text-muted);
             border: none;
             padding: 10px 0;
             border-radius: 10px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
             flex: 1;
-            margin: 0 6px;
+            margin: 0 4px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
         }
 
         .nav-tab-btn.active {
-            background-color: var(--primary-color);
-            color: #000;
+            background-color: var(--card-bg);
+            color: var(--primary-color);
+        }
+        
+        .nav-icon {
+            font-size: 18px;
         }
     </style>
 </head>
@@ -224,18 +353,14 @@
     <!-- Sekmeli Ana İçerik -->
     <main class="main-container">
 
-        <!-- LİNKLER SEKMESİ (Sadece istediğin 4 bağlantı) -->
+        <!-- 1. LİNKLER SEKMESİ -->
         <section id="linklerTab" class="tab-content active">
-            
-            <!-- TikTok / Telegram Uyarı Kutusu -->
             <div class="tiktok-alert">
                 ⚠️ <b>Telegram açılmıyor mu?</b><br>
                 TikTok içindeyseniz, sağ üstteki <b>üç noktaya (⋮)</b> basıp <b>"Tarayıcıda Aç"</b> seçeneğine tıklayarak Telegram'a sorunsuz katılabilirsiniz.
             </div>
 
             <div class="links-stack">
-                
-                <!-- 1. Bot Linki -->
                 <a href="https://t.me/Cryptopolatbot" class="bio-btn highlight" target="_blank">
                     <div class="btn-content">
                         <span class="btn-title">Ücretsiz E-Kitap & Strateji Rehberi (Bot)</span>
@@ -244,7 +369,6 @@
                     <span class="btn-arrow">›</span>
                 </a>
 
-                <!-- 2. Birebir Trade Eğitimi -->
                 <a href="https://t.me/Cryptogretmen" class="bio-btn" target="_blank">
                     <div class="btn-content">
                         <span class="btn-title">Birebir Ücretsiz Trade Eğitimi (Bana Yaz)</span>
@@ -253,7 +377,6 @@
                     <span class="btn-arrow">›</span>
                 </a>
 
-                <!-- 3. Telegram Kanalı -->
                 <a href="https://t.me/crypto_polat" class="bio-btn" target="_blank">
                     <div class="btn-content">
                         <span class="btn-title">TELEGRAM kanalım</span>
@@ -262,28 +385,23 @@
                     <span class="btn-arrow">›</span>
                 </a>
 
-                <!-- 4. BingX -->
-                <a href="https://bingxdao.com/invite/HF6IC4" class="bio-btn highlight" target="_blank">
+                <a href="https://t.me/crypto_polat_chat" class="bio-btn highlight" target="_blank">
                     <div class="btn-content">
-                        <span class="btn-title">BingX Kayıt linki(en güvenilir)</span>
-                        <span class="btn-subtitle">Özel avantajlı komisyon indirimli kayıt</span>
+                        <span class="btn-title">Sohbet Grubumuz</span>
+                        <span class="btn-subtitle">Birlikte kazanıyoruz</span>
                     </div>
                     <span class="btn-arrow">›</span>
                 </a>
-
             </div>
         </section>
 
-        <!-- CANLI PİYASA SEKMESİ -->
+        <!-- 2. CANLI PİYASA SEKMESİ -->
         <section id="piyasaTab" class="tab-content">
-            
-            <!-- 1. SIRADA: CRYPTO BUBBLES -->
             <h2 class="widget-title">Crypto Bubbles (Canlı)</h2>
             <div class="widget-box" style="padding: 0; height: 500px;">
                 <iframe src="https://cryptobubbles.net/" width="100%" height="100%" frameborder="0" style="border-radius: 14px; border: none;"></iframe>
             </div>
 
-            <!-- 2. SIRADA: İLK 10 KRİPTO SADE LİSTE -->
             <h2 class="widget-title">İlk 10 Kripto Para</h2>
             <div class="widget-box">
                 <div class="tradingview-widget-container">
@@ -299,6 +417,165 @@
                         "symbols": [
                             { "name": "BINANCE:BTCUSDT", "displayName": "Bitcoin" },
                             { "name": "BINANCE:ETHUSDT", "displayName": "Ethereum" },
+                            { "name": "BINANCE:BNBUSDT", "displayName": "BNB" },
+                            { "name": "BINANCE:SOLUSDT", "displayName": "Solana" },
+                            { "name": "BINANCE:XRPUSDT", "displayName": "XRP" },
+                            { "name": "BINANCE:DOGEUSDT", "displayName": "Dogecoin" },
+                            { "name": "BINANCE:ADAUSDT", "displayName": "Cardano" },
+                            { "name": "BINANCE:TRXUSDT", "displayName": "TRON" },
+                            { "name": "BINANCE:TONUSDT", "displayName": "Toncoin" },
+                            { "name": "BINANCE:AVAXUSDT", "displayName": "Avalanche" }
+                        ]
+                        }
+                    ],
+                    "showSymbolLogo": true,
+                    "isTransparent": true,
+                    "colorTheme": "dark",
+                    "locale": "tr"
+                    }
+                    </script>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. BİRİKİM SEKMESİ -->
+        <section id="birikimTab" class="tab-content">
+            <div class="savings-dashboard">
+                <p>Toplam Birikimim</p>
+                <h2 id="totalSavingsDisplay">0 ₺</h2>
+                <p class="savings-motto">Bileşik etkinin gücü: Bugün atılan küçük adımlar, yarının büyük servetidir.</p>
+            </div>
+
+            <h2 class="widget-title">Yeni Birikim Ekle</h2>
+            <div class="savings-form">
+                <input type="number" id="savingAmount" placeholder="Miktar (Örn: 500)">
+                <input type="text" id="savingNote" placeholder="Açıklama (Örn: Haftalık kâr)">
+                <button onclick="addSaving()">Kumbara'ya At</button>
+            </div>
+
+            <h2 class="widget-title">Geçmiş İşlemler</h2>
+            <div class="history-container" id="historyList">
+                <!-- Kayıtlar buraya JavaScript ile eklenecek -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Sabit Alt Menü -->
+    <nav class="bottom-nav">
+        <button class="nav-tab-btn active" onclick="switchTab('linklerTab', this)">
+            <span class="nav-icon">🔗</span>
+            Linklerim
+        </button>
+        <button class="nav-tab-btn" onclick="switchTab('piyasaTab', this)">
+            <span class="nav-icon">📊</span>
+            Piyasa
+        </button>
+        <button class="nav-tab-btn" onclick="switchTab('birikimTab', this)">
+            <span class="nav-icon">💰</span>
+            Birikim
+        </button>
+    </nav>
+
+    <!-- JavaScript İşlemleri -->
+    <script>
+        // --- SEKMELERİ KONTROL ETME ---
+        function switchTab(tabId, btnElement) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+
+            document.querySelectorAll('.nav-tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            btnElement.classList.add('active');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // --- BİRİKİM UYGULAMASI MANTIĞI ---
+        let savingsData = JSON.parse(localStorage.getItem('cryptoPolatSavings')) || [];
+
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(amount);
+        }
+
+        function renderSavings() {
+            const listElement = document.getElementById('historyList');
+            const totalElement = document.getElementById('totalSavingsDisplay');
+            
+            listElement.innerHTML = '';
+            let total = 0;
+
+            if (savingsData.length === 0) {
+                listElement.innerHTML = '<p style="text-align:center; color:#848e9c; font-size:14px; margin-top:20px;">Henüz bir kayıt yok. İlk birikimini yukarıdan ekle!</p>';
+            }
+
+            savingsData.forEach((item, index) => {
+                total += item.amount;
+                
+                const div = document.createElement('div');
+                div.className = 'history-item';
+                div.innerHTML = `
+                    <div class="history-info">
+                        <span class="history-note">${item.note}</span>
+                        <span class="history-date">${item.date}</span>
+                    </div>
+                    <div class="history-amount">
+                        +${formatCurrency(item.amount)}
+                        <button class="delete-btn" onclick="deleteSaving(${index})">✕</button>
+                    </div>
+                `;
+                listElement.appendChild(div);
+            });
+
+            totalElement.innerText = formatCurrency(total);
+        }
+
+        function addSaving() {
+            const amountInput = document.getElementById('savingAmount');
+            const noteInput = document.getElementById('savingNote');
+            
+            const amount = parseFloat(amountInput.value);
+            const note = noteInput.value.trim() || 'İsimsiz Birikim';
+
+            if (isNaN(amount) || amount <= 0) {
+                alert("Lütfen geçerli bir miktar girin!");
+                return;
+            }
+
+            const today = new Date();
+            const dateStr = today.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
+
+            savingsData.unshift({ // Yeni kayıtları en üste ekler
+                amount: amount,
+                note: note,
+                date: dateStr
+            });
+
+            localStorage.setItem('cryptoPolatSavings', JSON.stringify(savingsData));
+            
+            amountInput.value = '';
+            noteInput.value = '';
+            
+            renderSavings();
+        }
+
+        function deleteSaving(index) {
+            if(confirm("Bu kaydı silmek istediğine emin misin?")) {
+                savingsData.splice(index, 1);
+                localStorage.setItem('cryptoPolatSavings', JSON.stringify(savingsData));
+                renderSavings();
+            }
+        }
+
+        // Sayfa yüklendiğinde birikimleri ekrana bas
+        document.addEventListener('DOMContentLoaded', renderSavings);
+    </script>
+</body>
+</html>
+T", "displayName": "Ethereum" },
                             { "name": "BINANCE:BNBUSDT", "displayName": "BNB" },
                             { "name": "BINANCE:SOLUSDT", "displayName": "Solana" },
                             { "name": "BINANCE:XRPUSDT", "displayName": "XRP" },
