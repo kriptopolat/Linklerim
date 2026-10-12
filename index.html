@@ -117,6 +117,12 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
+        .bio-btn:hover {
+            background-color: var(--card-bg);
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
         .bio-btn.highlight {
             border-color: var(--primary-color);
             background: linear-gradient(135deg, #181a20 0%, #262115 100%);
@@ -311,7 +317,7 @@
         }
 
         .nav-tab-btn {
-            background-color: transparent;
+            background-color: var(--card-bg);
             color: var(--text-muted);
             border: none;
             padding: 10px 0;
@@ -323,19 +329,11 @@
             flex: 1;
             margin: 0 4px;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
         }
 
         .nav-tab-btn.active {
-            background-color: var(--card-bg);
-            color: var(--primary-color);
-        }
-        
-        .nav-icon {
-            font-size: 18px;
+            background-color: var(--primary-color);
+            color: #000;
         }
     </style>
 </head>
@@ -355,12 +353,14 @@
 
         <!-- 1. LİNKLER SEKMESİ -->
         <section id="linklerTab" class="tab-content active">
+            
             <div class="tiktok-alert">
                 ⚠️ <b>Telegram açılmıyor mu?</b><br>
                 TikTok içindeyseniz, sağ üstteki <b>üç noktaya (⋮)</b> basıp <b>"Tarayıcıda Aç"</b> seçeneğine tıklayarak Telegram'a sorunsuz katılabilirsiniz.
             </div>
 
             <div class="links-stack">
+                <!-- 1. Bot Linki -->
                 <a href="https://t.me/Cryptopolatbot" class="bio-btn highlight" target="_blank">
                     <div class="btn-content">
                         <span class="btn-title">Ücretsiz E-Kitap & Strateji Rehberi (Bot)</span>
@@ -369,6 +369,7 @@
                     <span class="btn-arrow">›</span>
                 </a>
 
+                <!-- 2. Birebir Trade Eğitimi -->
                 <a href="https://t.me/Cryptogretmen" class="bio-btn" target="_blank">
                     <div class="btn-content">
                         <span class="btn-title">Birebir Ücretsiz Trade Eğitimi (Bana Yaz)</span>
@@ -377,6 +378,7 @@
                     <span class="btn-arrow">›</span>
                 </a>
 
+                <!-- 3. Telegram Kanalı -->
                 <a href="https://t.me/crypto_polat" class="bio-btn" target="_blank">
                     <div class="btn-content">
                         <span class="btn-title">TELEGRAM kanalım</span>
@@ -385,14 +387,16 @@
                     <span class="btn-arrow">›</span>
                 </a>
 
-                <a href="https://t.me/crypto_polat_chat" class="bio-btn highlight" target="_blank">
+                <!-- 4. BingX -->
+                <a href="https://bingxdao.com/invite/HF6IC4" class="bio-btn highlight" target="_blank">
                     <div class="btn-content">
-                        <span class="btn-title">Sohbet Grubumuz</span>
-                        <span class="btn-subtitle">Birlikte kazanıyoruz</span>
+                        <span class="btn-title">BingX Kayıt linki(en güvenilir)</span>
+                        <span class="btn-subtitle">Özel avantajlı komisyon indirimli kayıt</span>
                     </div>
                     <span class="btn-arrow">›</span>
                 </a>
             </div>
+            
         </section>
 
         <!-- 2. CANLI PİYASA SEKMESİ -->
@@ -463,18 +467,9 @@
 
     <!-- Sabit Alt Menü -->
     <nav class="bottom-nav">
-        <button class="nav-tab-btn active" onclick="switchTab('linklerTab', this)">
-            <span class="nav-icon">🔗</span>
-            Linklerim
-        </button>
-        <button class="nav-tab-btn" onclick="switchTab('piyasaTab', this)">
-            <span class="nav-icon">📊</span>
-            Piyasa
-        </button>
-        <button class="nav-tab-btn" onclick="switchTab('birikimTab', this)">
-            <span class="nav-icon">💰</span>
-            Birikim
-        </button>
+        <button class="nav-tab-btn active" onclick="switchTab('linklerTab', this)">🔗 Linklerim</button>
+        <button class="nav-tab-btn" onclick="switchTab('piyasaTab', this)">📊 Piyasa</button>
+        <button class="nav-tab-btn" onclick="switchTab('birikimTab', this)">💰 Birikim</button>
     </nav>
 
     <!-- JavaScript İşlemleri -->
@@ -572,55 +567,6 @@
 
         // Sayfa yüklendiğinde birikimleri ekrana bas
         document.addEventListener('DOMContentLoaded', renderSavings);
-    </script>
-</body>
-</html>
-T", "displayName": "Ethereum" },
-                            { "name": "BINANCE:BNBUSDT", "displayName": "BNB" },
-                            { "name": "BINANCE:SOLUSDT", "displayName": "Solana" },
-                            { "name": "BINANCE:XRPUSDT", "displayName": "XRP" },
-                            { "name": "BINANCE:DOGEUSDT", "displayName": "Dogecoin" },
-                            { "name": "BINANCE:ADAUSDT", "displayName": "Cardano" },
-                            { "name": "BINANCE:TRXUSDT", "displayName": "TRON" },
-                            { "name": "BINANCE:TONUSDT", "displayName": "Toncoin" },
-                            { "name": "BINANCE:AVAXUSDT", "displayName": "Avalanche" }
-                        ]
-                        }
-                    ],
-                    "showSymbolLogo": true,
-                    "isTransparent": true,
-                    "colorTheme": "dark",
-                    "locale": "tr"
-                    }
-                    </script>
-                </div>
-            </div>
-
-        </section>
-
-    </main>
-
-    <!-- Sabit Alt Menü -->
-    <nav class="bottom-nav">
-        <button class="nav-tab-btn active" onclick="switchTab('linklerTab', this)">🔗 Linklerim</button>
-        <button class="nav-tab-btn" onclick="switchTab('piyasaTab', this)">📊 Canlı Piyasa</button>
-    </nav>
-
-    <!-- JavaScript Sekme Kontrolü -->
-    <script>
-        function switchTab(tabId, btnElement) {
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            document.getElementById(tabId).classList.add('active');
-
-            document.querySelectorAll('.nav-tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            btnElement.classList.add('active');
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
     </script>
 </body>
 </html>
