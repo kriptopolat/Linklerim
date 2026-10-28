@@ -691,7 +691,7 @@
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
 
-        let bird = { x: 50, y: 150, radius: 10, velocity: 0, gravity: 0.35, jump: -6 };
+        let bird = { x: 50, y: 150, radius: 13, velocity: 0, gravity: 0.35, jump: -6 };
         let obstacles = [];
         let score = 0;
         let gameRunning = false;
@@ -719,11 +719,18 @@
             bird.velocity += bird.gravity;
             bird.y += bird.velocity;
 
+            // BITCOIN AMBLEMİ (TURUNCU DARE + BEYAZ ₿ SİMGESİ)
             ctx.beginPath();
             ctx.arc(bird.x, bird.y, bird.radius, 0, Math.PI * 2);
-            ctx.fillStyle = '#f3ba2f';
+            ctx.fillStyle = '#f7931a';
             ctx.fill();
             ctx.closePath();
+
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 14px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('₿', bird.x, bird.y + 1);
 
             if (frameCount % 90 === 0) {
                 let gap = 100;
@@ -763,6 +770,8 @@
 
             ctx.fillStyle = '#ffffff';
             ctx.font = 'bold 20px sans-serif';
+            ctx.textAlign = 'left';
+            ctx.textBaseline = 'alphabetic';
             ctx.fillText("Skor: " + score, 15, 30);
 
             frameCount++;
