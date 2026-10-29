@@ -876,5 +876,14 @@
 
         loadLeaderboard();
     </script>
+    <script>
+    const firebaseConfig = {
+        databaseURL: "https://cryptopolat-oyun-default-rtdb.europe-west1.firebasedatabase.app/"
+    };
+    
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+</script>
+
 </body>
 </html>
